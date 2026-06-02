@@ -1,0 +1,43 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dynamic-error-corpus-unimumer"
+version = "0.1.0"
+description = "Dynamic error-corpus training for Uni-MuMER handwritten formula recognition."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "datasets>=2.20.0",
+    "Pillow>=10.0.0",
+    "torch>=2.8,<2.9",
+    "torchvision>=0.23,<0.24",
+    "transformers>=4.57.0",
+    "qwen-vl-utils>=0.0.8",
+    "accelerate>=0.33.0",
+    "tqdm>=4.66.0",
+    "peft>=0.13.0",
+    "wandb>=0.17.0",
+]
+
+[project.scripts]
+dec-run = "dec_unimumer.experiment:main"
+dec-download = "dec_unimumer.download:main"
+dec-prepare-crohme = "dec_unimumer.crohme:main"
+dec-infer = "dec_unimumer.inference:main"
+dec-build-corpus = "dec_unimumer.corpus:main"
+dec-train = "dec_unimumer.training:main"
+dec-evaluate = "dec_unimumer.evaluation:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/dec_unimumer"]
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu128" }
+torchvision = { index = "pytorch-cu128" }

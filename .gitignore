@@ -1,0 +1,73 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.Python
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Virtual environments and local env files
+.venv/
+venv/
+env/
+ENV/
+.env
+.env.*
+
+# IDE / OS noise
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local datasets and generated artifacts
+data/
+outputs/
+reports/
+notebooks/
+runs/
+wandb/
+external/
+checkpoints/
+
+# Model weights and large ML artifacts
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.onnx_data
+*.gguf
+*.arrow
+*.parquet
+
+# Archives and downloaded raw packages
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.gz
+*.7z
+*.rar
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# Platform-specific training leftovers
+checkpoint-*/
+**/checkpoint-*/
+**/trainer/checkpoint-*/
+**/adapter_interrupted/
+**/processor_interrupted/
